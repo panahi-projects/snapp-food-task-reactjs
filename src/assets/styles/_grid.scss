@@ -1,0 +1,41 @@
+// Define breakpoint sizes
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  //   margin-right: -15px; /* Adjust this margin based on your design */
+  //   margin-left: -15px; /* Adjust this margin based on your design */
+}
+
+// Define grid column classes
+@for $i from 1 through 12 {
+  .col-sm-#{$i} {
+    flex: 0 0 calc((#{$i} / 12) * 100%);
+    max-width: calc((#{$i} / 12) * 100%);
+  }
+
+  @media (min-width: #{$breakpoint-md}) {
+    .col-md-#{$i} {
+      flex: 0 0 calc((#{$i} / 12) * 100%);
+      max-width: calc((#{$i} / 12) * 100%);
+    }
+  }
+
+  @media (min-width: #{$breakpoint-lg}) {
+    .col-lg-#{$i} {
+      flex: 0 0 calc((#{$i} / 12) * 100%);
+      max-width: calc((#{$i} / 12) * 100%);
+    }
+  }
+
+  @media (min-width: #{$breakpoint-xl}) {
+    .col-xl-#{$i} {
+      flex: 0 0 calc((#{$i} / 12) * 100%);
+      max-width: calc((#{$i} / 12) * 100%);
+    }
+  }
+}

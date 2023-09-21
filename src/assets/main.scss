@@ -1,17 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+// @import './styles/variables';
+@import './styles/grid';
+
+#app {
+  direction: rtl;
+  font-family: 'iranyekan', 'IRANSans', 'Arial', sans-serif;
+  color: var(--text-1);
 }
-body {
-  background-color: #d42626;
-  .scssClass {
-    background-color: rgb(55, 18, 243);
-    text-align: center;
-    padding: 20px 0;
-    h2 {
-      color: white;
-      font-family: sans-serif;
-    }
-  }
+.container {
+  display: flex;
+  margin: auto;
+  text-align: center;
 }

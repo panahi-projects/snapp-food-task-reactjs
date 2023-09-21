@@ -1,0 +1,9 @@
+@import './assets/styles/variables';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--light-gray);
+}

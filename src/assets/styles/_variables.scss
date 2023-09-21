@@ -1,0 +1,66 @@
+@import '../fonts/farsi-font/farsi-fonts.scss';
+
+// Light Theme Variables
+$light-background-color: #ffffff;
+$light-text-color: #333333;
+$light-primary-color: #ff00a4;
+$light-secondary-color: #6c757d;
+$light-accent-color: #28a745;
+$light-gray-1-color: #f8f9fb;
+$light-error-color: #dc3545;
+
+// Dark Theme Variables
+$dark-background-color: #333333;
+$dark-text-color: #ffffff;
+$dark-primary-color: #ff00a4;
+$dark-secondary-color: #6c757d;
+$dark-accent-color: #28a745;
+$dark-error-color: #dc3545;
+
+$font-family: 'IranSansWeb', 'Arial', sans-serif;
+
+// Define breakpoint sizes
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+:root {
+  --fa-alphabet-font: #{$font-family};
+  --text-xxx-small: 7px;
+  --text-xx-small: 8px;
+  --text-x-small: 10px;
+  --text-x-mid-small: 11px;
+  --text-small: 12px;
+  --text-medium: 14px;
+  --text-size: 16px;
+  --text-large: 17px;
+  --text-m-large: 18px;
+  --text-x-large: 20px;
+  --text-xx-large: 22px;
+  --screen-sm: #{$breakpoint-sm};
+  --screen-md: #{$breakpoint-md};
+  --screen-lg: #{$breakpoint-lg};
+  --screen-xl: #{$breakpoint-xl};
+  --light-gray: #{$light-gray-1-color};
+}
+
+/* Light Theme */
+.light-theme {
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --background-1: #{$light-background-color};
+  --text-1: #{$light-text-color};
+  --primary-color: #{$light-primary-color};
+  --white-color: #fff;
+  --card-shadow-1: 0 2px 12px 0 var(--card-shadow);
+}
+
+/* Dark Theme */
+.dark-theme {
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --background-1: #{$dark-background-color};
+  --text-1: #{$dark-text-color};
+  --primary-color: #{$dark-primary-color};
+  --white-color: #fff;
+  --card-shadow-1: 0 2px 12px 0 var(--card-shadow);
+}
