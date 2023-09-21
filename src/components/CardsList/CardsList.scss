@@ -1,0 +1,10 @@
+.list {
+  display: flex;
+  flex-direction: column; // Cards should stack vertically
+  justify-content: center; // Center cards vertically
+  align-items: center; // Center cards horizontally
+  padding-top: 16px;
+  & > * {
+    margin-bottom: 16px;
+  }
+}

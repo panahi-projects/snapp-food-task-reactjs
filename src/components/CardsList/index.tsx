@@ -1,25 +1,29 @@
+import useResponsive from '../../hooks/useResponsive';
 import useRestaurants from '../../hooks/useRestaurans';
 import Card from '../Card';
 import './CardsList.scss';
 
 function CardsList() {
+  const breakpoint = useResponsive();
+  console.log({ breakpoint });
   const { data, error, isLoading } = useRestaurants();
 
   return (
     <div className="list">
-      <ul>
-        {data.map(({ data: item, type }) => {
-          return type.toLowerCase() === 'vendor' && <li key={item.id}>{item.title}</li>;
-        })}
-      </ul>
-      {/* {data.map((item) => (
-        <Card
-          key={a}
-          itemName="کباب کوبیده"
-          itemDetails="کباب کوبیده گوسفندی 200 گرمی"
-          imageURL="https://cdn.snappfood.ir/400x266/uploads/images/vendors/covers/613471295f084.jpg"
-        />
-      ))} */}
+      {data.map(({ data: item, type }) => {
+        return (
+          type.toLowerCase() === 'vendor' && (
+            <Card
+              key={item.id}
+              itemName={item.title}
+              itemDetails={item.description}
+              logo={item.logo}
+              imageURL={item.backgroundImage}
+              breakpoint={breakpoint}
+            />
+          )
+        );
+      })}
     </div>
   );
 }

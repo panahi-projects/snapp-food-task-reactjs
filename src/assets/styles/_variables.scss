@@ -3,6 +3,7 @@
 // Light Theme Variables
 $light-background-color: #ffffff;
 $light-text-color: #333333;
+$light-text-color-1: #404040;
 $light-primary-color: #ff00a4;
 $light-secondary-color: #6c757d;
 $light-accent-color: #28a745;
@@ -43,6 +44,8 @@ $breakpoint-xl: 1200px;
   --screen-lg: #{$breakpoint-lg};
   --screen-xl: #{$breakpoint-xl};
   --light-gray: #{$light-gray-1-color};
+  --font-regular: 400;
+  --font-medium: 500;
 }
 
 /* Light Theme */
@@ -53,14 +56,12 @@ $breakpoint-xl: 1200px;
   --primary-color: #{$light-primary-color};
   --white-color: #fff;
   --card-shadow-1: 0 2px 12px 0 var(--card-shadow);
+  --card-shadow-2: 0 2px 12px 0 var(--card-shadow);
+  --card-shadow-3: 0 2px 6px 0 var(--card-shadow);
+  --text-color: #{$light-text-color-1};
 }
 
 /* Dark Theme */
 .dark-theme {
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --background-1: #{$dark-background-color};
-  --text-1: #{$dark-text-color};
-  --primary-color: #{$dark-primary-color};
-  --white-color: #fff;
-  --card-shadow-1: 0 2px 12px 0 var(--card-shadow);
+  // dark theme variables can be replaced here
 }

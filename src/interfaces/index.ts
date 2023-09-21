@@ -1,3 +1,4 @@
+export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl';
 export interface IRestaurantQuery {
   page: number;
   page_size: number;

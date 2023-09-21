@@ -10,16 +10,7 @@ function App() {
   });
   return (
     <div id="app" className={colorMode}>
-      <div className="">
-        <div className="col-md-12">
-          <Navbar />
-        </div>
-      </div>
-      <div className="">
-        <div className="col-md-12">
-          <CardsList />
-        </div>
-      </div>
+      <CardsList />
     </div>
   );
 }
