@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 // local imports:
 import App from './App.tsx';
 import Store from './store';
-import './assets/fonts/fonts.css';
+import './assets/fonts/farsi-font/farsi-fonts.css';
 import './assets/main.scss';
 import './index.scss';
 

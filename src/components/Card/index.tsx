@@ -1,15 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Breakpoint } from '../../interfaces';
 import './Card.scss';
 import styled from 'styled-components';
 import CardLogo from '../CardLogo';
+import { IRestaurantData } from '../../interfaces';
+import Rating from '../Rating';
+import BestCoupon from '../BestCoupon';
 
 interface CardProps {
-  imageURL: string;
-  itemName: string;
-  itemDetails: string;
-  logo: string;
-  breakpoint: Breakpoint;
+  data: IRestaurantData;
+  width?: string;
 }
 interface ICard {
   cardWidth: string;
@@ -17,43 +15,34 @@ interface ICard {
 const CardContainer = styled.div<ICard>`
   width: ${(props) => props.cardWidth};
 `;
-function Card({ imageURL, itemName, itemDetails, logo, breakpoint }: CardProps) {
-  const [width, setWidth] = useState<string>('');
 
-  useEffect(() => {
-    switch (breakpoint) {
-      case 'sm':
-        setWidth(`${200}px`);
-        break;
-      case 'md':
-        setWidth(`${400}px`);
-        break;
-      case 'lg':
-        setWidth(`${600}px`);
-        break;
-      case 'xl':
-        setWidth(`${650}px`);
-        break;
-      default:
-        setWidth(`${200}px`);
-        break;
-    }
-  }, []);
-
+function Card({ data: restaurant, width = '200px' }: CardProps) {
+  const additionalDetails = (deliveryFee: number, isZFExpress: boolean) => {
+    return (
+      <>
+        <span className="delivery-type">{isZFExpress ? ' ارسال اکسپرس ' : ' پیک فروشنده '}</span>
+        <span className="delivery-fee">{deliveryFee.toLocaleString('fa-IR')} تومان</span>
+      </>
+    );
+  };
   return (
     <CardContainer cardWidth={width} className="card">
-      <div className="card-image" style={{ backgroundImage: `url(${imageURL})` }}></div>
+      {restaurant.best_coupon && <BestCoupon coupon={restaurant.best_coupon} />}
+      <div className="card-image" style={{ backgroundImage: `url(${restaurant.backgroundImage})` }}></div>
       <div className="card-content">
         <div className="card-logo">
-          <CardLogo logo={logo} />
+          <CardLogo logo={restaurant.logo} />
         </div>
         <div className="card-details">
           <div className="main-row">
-            <p className="title">{itemName}</p>
-            <p className="rating">4.3 (45563)</p>
+            <p className="title">{restaurant.title}</p>
+            <p className="rate">
+              <Rating rate={restaurant.rate} />
+              <span className="vote-count">({restaurant.voteCount?.toLocaleString('fa-IR')})</span>
+            </p>
           </div>
-          <p className="description">{itemDetails}</p>
-          <p className="additional">{itemDetails}</p>
+          <p className="description">{restaurant.description?.replace(/\,/gi, ' ')}</p>
+          <p className="additional">{additionalDetails(restaurant.deliveryFee, restaurant.isZFExpress)}</p>
         </div>
       </div>
     </CardContainer>

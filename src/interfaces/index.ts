@@ -5,18 +5,21 @@ export interface IRestaurantQuery {
   lat: number;
   long: number;
 }
+export interface IRestaurantData {
+  id: number;
+  title: string;
+  description: string;
+  rate: number;
+  logo: string;
+  voteCount: number;
+  backgroundImage: string;
+  deliveryFee: number;
+  discountValueForView: number;
+  best_coupon: string;
+  isOpen: boolean;
+  isZFExpress: boolean; //is express delivery
+}
 export interface IRestaurant {
   type: string;
-  data: {
-    id: number;
-    title: string;
-    description: string;
-    rate: number;
-    logo: string;
-    voteCount: number;
-    backgroundImage: string;
-    deliveryFee: number;
-    best_coupon: string;
-    isOpen: boolean;
-  };
+  data: IRestaurantData;
 }

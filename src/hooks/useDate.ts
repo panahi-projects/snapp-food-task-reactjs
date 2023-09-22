@@ -23,7 +23,6 @@ const useData = <T, U>(endpoint: string, query?: U) => {
     apiClient
       .get<FetchResponse<T>>(endpoint, { signal: controller.signal, params: query })
       .then((res) => {
-        console.log(res.data.data.finalResult);
         setData(res.data.data.finalResult);
       })
       .catch((err) => {
