@@ -4,6 +4,7 @@ import CardLogo from '../CardLogo';
 import { IRestaurantData } from '../../interfaces';
 import Rating from '../Rating';
 import BestCoupon from '../BestCoupon';
+import Discount from '../Discount';
 
 interface CardProps {
   data: IRestaurantData;
@@ -21,7 +22,9 @@ function Card({ data: restaurant, width = '200px' }: CardProps) {
     return (
       <>
         <span className="delivery-type">{isZFExpress ? ' ارسال اکسپرس ' : ' پیک فروشنده '}</span>
-        <span className="delivery-fee">{deliveryFee.toLocaleString('fa-IR')} تومان</span>
+        <span className="delivery-fee">
+          {deliveryFee && deliveryFee > 0 ? `${deliveryFee.toLocaleString('fa-IR')} تومان` : 'رایگان'}
+        </span>
       </>
     );
   };
@@ -35,7 +38,10 @@ function Card({ data: restaurant, width = '200px' }: CardProps) {
         </div>
         <div className="card-details">
           <div className="main-row">
-            <p className="title">{restaurant.title}</p>
+            <p className="title-container">
+              <span className="title">{restaurant.title} </span>
+              {restaurant.discountValueForView > 0 && <Discount value={restaurant.discountValueForView} />}
+            </p>
             <p className="rate">
               <Rating rate={restaurant.rate} />
               <span className="vote-count">({restaurant.voteCount?.toLocaleString('fa-IR')})</span>
