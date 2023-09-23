@@ -1,5 +1,5 @@
-import { IRestaurant, IRestaurantQuery } from '../interfaces';
-import { getLocationInfo } from '../mock/location';
+import { IRestaurant, IRestaurantQuery } from '@interfaces/index';
+import { getLocationInfo } from '@mock/location';
 import useData from './useData';
 
 const { lat, long } = getLocationInfo();

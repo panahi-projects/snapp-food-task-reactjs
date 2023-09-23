@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Breakpoint } from '../interfaces';
+import { Breakpoint } from '@interfaces/index';
 
 function useResponsive(): Breakpoint {
   const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint());

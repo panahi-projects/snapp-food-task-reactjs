@@ -1,13 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 
-import Card from '../Card';
-import { IRestaurant } from '../../interfaces';
 import style from './CardsList.module.scss';
+import Card from '@components/Card';
 import useRestaurants from '@hooks/useRestaurans';
 import useViewport from '@hooks/useViewport';
 import useResponsive from '@hooks/useResponsive';
-import { RestaurantType } from '@constants/index';
+import { Breakpoints, RestaurantType, Sizes } from '@constants/index';
 import CardPlaceholder from '@components/CardPlaceholder';
+import { IRestaurant } from '@interfaces/index';
 
 function CardsList() {
   const page = useRef(0);
@@ -25,15 +25,15 @@ function CardsList() {
 
   useEffect(() => {
     switch (breakpoint) {
-      case 'sm':
+      case Breakpoints.SM:
         setWidth(`${smallerWidth}px`);
         break;
-      case 'md':
+      case Breakpoints.MD:
         setWidth(`${400}px`);
         break;
-      case 'lg':
-      case 'xl':
-        setWidth(`${567}px`);
+      case Breakpoints.LG:
+      case Breakpoints.XL:
+        setWidth(`${Sizes.CONTAINER_MAX_WIDTH}px`);
         break;
       default:
         setWidth(`${smallerWidth}px`);
@@ -71,7 +71,7 @@ function CardsList() {
 
   return (
     <div className={style.list}>
-      {(isLoading || !restaurants.length) && placeholders.map((p) => <CardPlaceholder />)}
+      {isLoading && placeholders.map((p, index) => <CardPlaceholder key={`ph_${index}`} width={width} />)}
       {restaurants.map(({ data: item, type }) => {
         return type.toLowerCase() === RestaurantType.VENDOR && <Card key={item.id} data={item} width={width} />;
       })}
