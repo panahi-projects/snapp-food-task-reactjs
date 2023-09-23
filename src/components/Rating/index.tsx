@@ -1,16 +1,18 @@
 import { AiFillStar } from 'react-icons/ai';
-import './Rating.scss';
+import style from './Rating.module.scss';
 
 interface Props {
   rate: number;
 }
 function Rating({ rate }: Props) {
   return (
-    <span className="rating">
-      <span className="rating-number">
+    <span className={style.rating}>
+      <span className={style.rating_number}>
         <AiFillStar />
       </span>
-      <span className="rating-number">{rate}</span>
+      <span id="rate" className={style.rating_number}>
+        {rate}
+      </span>
     </span>
   );
 }

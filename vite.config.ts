@@ -12,5 +12,16 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3001 // Set the development server port
+  },
+  resolve: {
+    alias: {
+      '@assets': '/src/assets',
+      '@components': '/src/components',
+      '@constants': '/src/constants',
+      '@hooks': '/src/hooks',
+      '@interfaces': '/src/interfaces',
+      '@mock': '/src/mock',
+      '@services': '/src/services'
+    }
   }
 });

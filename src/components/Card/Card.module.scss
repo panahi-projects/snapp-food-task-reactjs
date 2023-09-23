@@ -11,25 +11,25 @@
   box-shadow: var(--card-shadow-1);
   overflow: hidden;
 
-  .card-content,
-  .card-image {
+  &_content,
+  &_image {
     height: 50%;
   }
-  .card-image {
+  &_image {
     background-color: gray;
     width: 100%;
     background-size: cover;
     background-position: center center;
   }
-  .card-content {
+  &_content {
     position: relative;
   }
-  .card-logo {
+  &_logo {
     position: absolute;
     top: -45%;
     right: 8px;
   }
-  .card-details {
+  &_details {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -41,7 +41,7 @@
     height: 110px;
     direction: rtl;
   }
-  .main-row {
+  .main_row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -56,7 +56,7 @@
     -ms-flex-align: center;
     align-items: center;
   }
-  .title-container {
+  .title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -64,22 +64,23 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-  }
-  .title {
-    font-size: var(--text-medium);
-    font-weight: var(--font-bold);
-    color: var(--text-color);
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0;
-    position: relative;
-    width: unset;
-    max-width: 100%;
-    margin-left: 4px;
-    text-overflow: ellipsis;
-    line-height: 1.5;
+
+    &_container {
+      font-size: var(--text-medium);
+      font-weight: var(--font-bold);
+      color: var(--text-color);
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+      position: relative;
+      width: unset;
+      max-width: 100%;
+      margin-left: 4px;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+    }
   }
   .description {
     font-size: var(--text-small);
@@ -129,58 +130,18 @@
     -ms-flex-align: center;
     align-items: center;
   }
-  .vote-count,
-  .delivery-type {
+  .vote_count,
+  .delivery_type {
     margin-left: 4px;
     font-size: var(--text-small);
     font-weight: var(--font-regular);
     color: var(--text-color-light);
   }
-  .vote-count {
+  .vote_count {
     font-size: var(--text-x-mid-small);
   }
-  .delivery-fee {
+  .delivery_fee {
     font-size: var(--text-x-mid-small);
     font-weight: var(--font-regular);
   }
 }
-// .card {
-//   --card-size: 400px;
-//   --img-size: 130px;
-
-//   width: var(--card-size);
-//   height: 248px;
-//   max-width: 567px;
-//   min-width: min(calc(100% - 4px), 260px);
-//   background-color: var(--white-color);
-//   direction: rtl;
-//   border-radius: 6px;
-//   border: solid 0.5px var(--seperator-color);
-//   -webkit-box-shadow: var(--card-shadow-1);
-//   box-shadow: var(--card-shadow-1);
-// }
-// .card-image {
-//   height: 50%;
-//   img {
-//     width: 100%;
-//     background-size: cover;
-//     border-top-left-radius: 8px;
-//     border-top-right-radius: 8px;
-//   }
-// }
-
-// .card-content {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   padding: 10px;
-//   height: 50%;
-// }
-
-// .card-logo {
-//   background-color: #fff;
-//   padding: 5px;
-//   text-align: center;
-//   border-radius: 50%;
-//   margin: 0 auto;
-// }

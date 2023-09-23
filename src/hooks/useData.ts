@@ -17,11 +17,10 @@ const useData = <T, U>(endpoint: string, query?: U) => {
   const [error, setError] = useState('');
   const [isLoading, setLoading] = useState(false);
 
-  useEffect(() => {
+  const fetchData = (page: number) => {
     const controller = new AbortController();
-    setLoading(true);
     apiClient
-      .get<FetchResponse<T>>(endpoint, { signal: controller.signal, params: query })
+      .get<FetchResponse<T>>(endpoint, { signal: controller.signal, params: { ...query, page } })
       .then((res) => {
         setData(res.data.data.finalResult);
       })
@@ -32,11 +31,17 @@ const useData = <T, U>(endpoint: string, query?: U) => {
       .finally(() => {
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setLoading(true);
+    fetchData(0);
 
     return () => controller.abort();
   }, []);
 
-  return { data, error, isLoading };
+  return { data, error, isLoading, fetchData };
 };
 
 export default useData;

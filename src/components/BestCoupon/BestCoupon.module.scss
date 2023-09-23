@@ -1,4 +1,4 @@
-.coupon-container {
+.coupon {
   position: absolute;
   width: 100%;
   top: 8px;
@@ -17,14 +17,14 @@
   -ms-flex-align: center;
   align-items: center;
 
-  .coupon {
+  &_container {
     background-color: var(--background-1);
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
     max-width: calc(100% - 8px);
     padding: 2px 8px;
   }
-  .coupon-text {
+  &_text {
     padding-right: 4px;
     color: var(--primary-color);
     font-size: var(--text-small);

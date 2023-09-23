@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import './CardLogo.scss';
+
+import style from './CardLogo.module.scss';
+import Placeholder from '@assets/images/150x150.png';
 
 interface Props {
   logo: string;
@@ -14,8 +16,8 @@ const Logo = styled.div`
 
 function CardLogo({ logo }: Props) {
   return (
-    <Logo className="logo">
-      <Image src={logo} />
+    <Logo className={style.logo}>
+      <Image src={Placeholder && logo} />
     </Logo>
   );
 }

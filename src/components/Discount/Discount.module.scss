@@ -12,17 +12,19 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-.discount-value {
-  background-color: var(--primary-color);
-  border-radius: 4px;
-  font-size: var(--text-x-mid-small);
-  font-weight: var(--font-medium);
-  color: var(--white-color);
-  margin-left: 1px;
-  padding: 4px;
-  line-height: 0.7;
-}
-.discount-value span:first-child {
-  margin-left: 3px;
+
+  &_value {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    font-size: var(--text-x-mid-small);
+    font-weight: var(--font-medium);
+    color: var(--white-color);
+    margin-left: 1px;
+    padding: 4px;
+    line-height: 0.7;
+
+    & span:first-child {
+      margin-left: 3px;
+    }
+  }
 }
