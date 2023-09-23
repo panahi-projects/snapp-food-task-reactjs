@@ -17,7 +17,7 @@ const Logo = styled.div`
 function CardLogo({ logo }: Props) {
   return (
     <Logo className={style.logo}>
-      <Image src={Placeholder && logo} />
+      <Image src={Placeholder && logo} alt="Restaurant Logo" />
     </Logo>
   );
 }

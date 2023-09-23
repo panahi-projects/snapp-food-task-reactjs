@@ -1,12 +1,11 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
-module.exports = {
+export default {
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  testEnvironment: 'jest-environment-jsdom',
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest'
+    '^.+\\.tsx?$': 'ts-jest'
+    // process `*.tsx` files with `ts-jest`
   },
-  testMatch: ['**/*.test.(ts|tsx|js|jsx)'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$'
+  moduleNameMapper: {
+    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/__test__/__mocks__/fileMock.js'
+  }
 };
